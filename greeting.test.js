@@ -12,7 +12,7 @@ describe("greeting", function() {
         expect(result).toEqual("Hello, Luke!");
     });
     test("returns 'Hello there!'", function () {
-        let name;
+        let name= "Luke";
         let result = greet(name);
         expect(result).toEqual("Hello there!");
     });
