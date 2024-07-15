@@ -45,4 +45,8 @@ describe("transmission processor", function () {
         const expectedError = new Error('id is invalid; cannot be converted to Number');
         expect(() => { processor("9701::<489584872710>"); }).not.toThrow(expectedError);
     });
+    test("throws error if rawData does not contain only digits between '<' and '>'", function () {
+        const expectedError = new Error('rawData is invalid; should contain only digits between "<" and ">"');
+        expect(() => { processor("9701::<489584872710a>"); }).toThrow(expectedError);
+    });
 });
