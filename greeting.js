@@ -7,14 +7,12 @@ function greet(name) {
   if (isGreetingForUpperCaseName(name)) {
     return `HELLO ${name}!`;
   }
-
   if (isGreetingForNoName(name)) {
     return 'Hello there!';
   }
-
   return `Hello, ${name}!`;
-
 }
+
 function isGreetingForMultipleNames(name) {
   return Array.isArray(name) && name.length > 2;
 }
