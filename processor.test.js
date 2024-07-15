@@ -40,4 +40,9 @@ describe("transmission processor", function () {
         const expectedError = new Error('rawData is invalid; should start with "<" and end with ">"');
         expect(() => { processor("9701::489584872710"); }).toThrow(expectedError);
     });
+    //Lance une exception si la partie id de transmission ne peut pas être converti en Number
+    test("throws error if id cannot be converted to Number", function () {
+        const expectedError = new Error('id is invalid; cannot be converted to Number');
+        expect(() => { processor("9701::<489584872710>"); }).not.toThrow(expectedError);
+    });
 });
