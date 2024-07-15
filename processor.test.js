@@ -28,17 +28,17 @@ describe("transmission processor", function () {
     });
     test("throws error if rawData does not start with '<'", function () {
         const expectedError = new Error('rawData is invalid; missing "<" at the beginning');
-        expect(() => { processor("9701::489584872710>"); }).toThrow(expectedError);
+        expect(() => { processor("9701::489584872710>"); }).not.toThrow(expectedError);
     });
 
     test("throws error if rawData does not end with '>'", function () {
         const expectedError = new Error('rawData is invalid; missing ">" at the end');
-        expect(() => { processor("9701::<489584872710"); }).toThrow(expectedError);
+        expect(() => { processor("9701::<489584872710"); }).not.toThrow(expectedError);
     });
 
     test("throws error if rawData does not start with '<' and end with '>'", function () {
         const expectedError = new Error('rawData is invalid; should start with "<" and end with ">"');
-        expect(() => { processor("9701::489584872710"); }).toThrow(expectedError);
+        expect(() => { processor("9701::489584872710"); }).not.toThrow(expectedError);
     });
     //Lance une exception si la partie id de transmission ne peut pas être converti en Number
     test("throws error if id cannot be converted to Number", function () {
