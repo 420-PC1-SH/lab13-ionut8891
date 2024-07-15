@@ -4,7 +4,8 @@ function greet(name) {
   }
   if(Array.isArray(name) && name.length === 2)
     return `Hello, ${name[0]} and ${name[1]}!`;
-  else if (name === undefined || name === null || name === "")
+
+  if (name === undefined || name === null || name === "")
     return 'Hello there!';
   else if(name===name.toUpperCase())
     return `HELLO ${name}!`;
@@ -14,6 +15,9 @@ function greet(name) {
 }
 function isGreetingForMultipleNames(name) {
   return Array.isArray(name) && name.length > 2;
+}
+function isGreetingForTwoNames(name) {
+  return `Hello, ${name[0]} and ${name[1]}!`;
 }
 
 module.exports = greet;
