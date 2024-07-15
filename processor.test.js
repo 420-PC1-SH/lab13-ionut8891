@@ -26,4 +26,18 @@ describe("transmission processor", function () {
         let result = processor("9701::<487297403495720912>");
         expect(result.rawData).not.toEqual(undefined);
     });
+    test("throws error if rawData does not start with '<'", function () {
+        const expectedError = new Error('rawData is invalid; should start with "<" and end with ">"');
+        expect(() => { processor("9701::489584872710>"); }).toThrow(expectedError);
+    });
+
+    test("throws error if rawData does not end with '>'", function () {
+        const expectedError = new Error('rawData is invalid; should start with "<" and end with ">"');
+        expect(() => { processor("9701::<489584872710"); }).toThrow(expectedError);
+    });
+
+    test("throws error if rawData does not start with '<' and end with '>'", function () {
+        const expectedError = new Error('rawData is invalid; should start with "<" and end with ">"');
+        expect(() => { processor("9701::489584872710"); }).toThrow(expectedError);
+    });
 });
