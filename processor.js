@@ -13,7 +13,7 @@ function processor(transmission) {
         throw new Error('rawData is invalid; should start with "<" and end with ">"');
     }
     let content = rawData.slice(1, -1);
-    if (!/\d/.test(content)) {
+    if (/^\d+$/.test(content)) {
         throw new Error('rawData is invalid; should contain only digits between "<" and ">"');
     }
     return {

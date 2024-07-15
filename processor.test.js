@@ -47,6 +47,6 @@ describe("transmission processor", function () {
     });
     test("throws error if rawData does not contain only digits between '<' and '>'", function () {
         const expectedError = new Error('rawData is invalid; should contain only digits between "<" and ">"');
-        expect(() => { processor("9701::<489584872710a>"); }).toThrow(expectedError);
+        expect(() => { processor("9701::<48958a4872710>"); }).toThrow(expectedError);
     });
 });
