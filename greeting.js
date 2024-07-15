@@ -8,9 +8,10 @@ function greet(name) {
     return `HELLO ${name}!`;
   }
 
-  if (name === undefined || name === null || name === "")
+  if (isGreetingForNoName(name)) {
     return 'Hello there!';
-  else
+  }
+
   return `Hello, ${name}!`;
 
 }
@@ -22,6 +23,9 @@ function isGreetingForTwoNames(name) {
 }
 function isGreetingForUpperCaseName(name) {
   return typeof name === 'string' && name === name.toUpperCase();
+}
+function isGreetingForNoName(name) {
+  return name === undefined || name === null || name === "";
 }
 
 module.exports = greet;
